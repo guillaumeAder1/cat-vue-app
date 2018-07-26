@@ -34,7 +34,6 @@ Vue.component('post', {
     props: ['item'],
     methods: {
         getImageBackgroundCSS: function(val) {
-            console.log(val)
             return "background-image:url('" + val + "')"
         }
     },
@@ -70,16 +69,5 @@ Vue.filter('truncate', function(value) {
 -----------------*/
 
 new Vue({
-    el: '#main',
-    data: {
-
-        results: []
-    },
-    // mounted() {
-    //     axios.get(redditapi + this.name + ".json")
-    //         .then(response => {
-    //             this.results = response.data.results
-    //         })
-    // },
-    // template: "<div class='container'></div>"
+    el: '#main'
 });
