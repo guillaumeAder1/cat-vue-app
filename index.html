@@ -11,7 +11,6 @@
 <body>
 
 
-
     <div id="main">
         <div class="container">
             <subreddit name="cats"></subreddit>
@@ -21,14 +20,21 @@
 
     <template id="subreddit">
 		<div class="subreddit">
-			<h2>{{ name | uppercase }}</h2>
-			<ul class="item-list">			
+			<h2>{{ name | uppercase }} </h2>
+			
+			<ul class="item-list">
 				<li v-for="obj in posts">
 					<post :item="obj"></post>
 				</li>
 			</ul>
+
+			<div v-if="loading"><loader/></div>
+			<span v-if="error">
+				Sorry, something went wrong... 
+				{{error | lowercase}}
+			</span>
 		</div>
-	</template>
+    </template>
 
 
 
@@ -54,7 +60,7 @@
 		</div>		
 	</template>
 
-
+    <!-- load external lib for fetching data... -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="assets/js/vue.js"></script>
     <script src="assets/js/vue-resource.min.js"></script>
