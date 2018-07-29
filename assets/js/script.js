@@ -74,6 +74,10 @@ Vue.filter('lowercase', function (value) {
     return value.toLowerCase();
 });
 
+Vue.filter('reverse', function (value) {
+    // slice to make a copy of array, then reverse the copy
+    return value.slice().reverse();
+});
 
 // Filter that transform text to uppercase.
 Vue.filter('uppercase', function (value) {
@@ -102,7 +106,7 @@ new Vue({
     data() {
         return {
             newitem: null,
-            items: [], // list of other items to research on reddit...
+            items: ['kitten', 'cats'], // list of other items to research on reddit...
         }
     },
     methods: {

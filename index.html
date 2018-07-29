@@ -19,10 +19,12 @@
         </div>
 
         <div class="container">
-            <subreddit name="cats"></subreddit>
-            <subreddit name="kittens"></subreddit>
+            <!-- Removed to be added directly from Data.items[] 
+			<subreddit name="cats"></subreddit>
+			<subreddit name="kittens"></subreddit>
+		 	-->
             <!-- list of other research -->
-            <template v-for="item in items">
+            <template v-for="item in items.slice().reverse()">
 				<subreddit :name="item"></subreddit>
 			</template>
         </div>
@@ -38,7 +40,7 @@
 					<post :item="obj"></post>
 				</li>
 			</ul>
-
+			<!-- add loader, and handle error message when request is not found on reddit api... (or other network issues) -->
 			<div v-if="loading"><loader/></div>
 			<span v-if="error">
 				Sorry, something went wrong... 
