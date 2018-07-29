@@ -12,10 +12,21 @@
 
 
     <div id="main">
+        <!-- allow user to to do new reseach on reddit api -->
+        <div class="search container">
+            <input v-model="newitem" type="text" placeholder="search on reddit...">
+            <button v-on:click="search">Search</button>
+        </div>
+
         <div class="container">
             <subreddit name="cats"></subreddit>
             <subreddit name="kittens"></subreddit>
+            <!-- list of other research -->
+            <template v-for="item in items">
+				<subreddit :name="item"></subreddit>
+			</template>
         </div>
+
     </div>
 
     <template id="subreddit">

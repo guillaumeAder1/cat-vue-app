@@ -39,7 +39,7 @@ Vue.component('subreddit', {
     },
     mounted() {
         // once the component is created, fetch data...
-        this.fetchData()
+        this.fetchData();
     },
     // grabb the #subreddit template from index.hmtl
     template: "#subreddit"
@@ -97,5 +97,18 @@ Vue.filter('truncate', function (value) {
 -----------------*/
 
 new Vue({
-    el: '#main'
+    el: '#main',
+    data() {
+        return {
+            newitem: null,
+            items: [], // list of other item to research on reddit...
+        }
+    },
+    methods: {
+        search: function () {
+            // add new item to the subreddit list, and then reset input field value to ""
+            this.newitem && this.items.push(this.newitem), this.newitem = "";
+
+        }
+    }
 });
