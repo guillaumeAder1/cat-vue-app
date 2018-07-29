@@ -11,8 +11,8 @@ Vue.component('subreddit', {
         return {
             name: this.name,
             posts: [],
-            error: null,
-            loading: true
+            error: null, // if error during fetching data, stock messsage here.
+            loading: true // show loader icon
         }
     },
     methods: {
@@ -27,9 +27,10 @@ Vue.component('subreddit', {
                         // once data are found, assign the result to the 'posts' props, 
                         // and slice the resutls array to 5 items, by default I got 25 results
                         this.posts = response.data.data.children.slice(0, 5);
-                        this.loading = false;
+                        this.loading = false; // hide loader icon
                     }.bind(this), // use bind since we are note in ES6 syntax
                     function (error) {
+                        // handle error, hide loader icon
                         console.log(error);
                         this.error = error.message;
                         this.loading = false;
@@ -60,7 +61,7 @@ Vue.component('post', {
     template: "#post"
 });
 
-
+// create Loader component displaying spining symbol
 Vue.component('loader', {
     template: "<div class='loader'></div>"
 });
@@ -101,7 +102,7 @@ new Vue({
     data() {
         return {
             newitem: null,
-            items: [], // list of other item to research on reddit...
+            items: [], // list of other items to research on reddit...
         }
     },
     methods: {
