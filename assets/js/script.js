@@ -111,13 +111,11 @@ new Vue({
     },
     methods: {
         search: function () {
-
             //add new item to the subreddit list, and then reset input field value to ""
             if (this.newitem) {
                 this.items.push(this.newitem);
                 this.newitem = "";
             }
-
         }
     }
 });
